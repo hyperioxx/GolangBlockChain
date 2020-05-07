@@ -10,6 +10,7 @@ import (
 		"github.com/davecgh/go-spew/spew"
 		"github.com/gorilla/mux"
 		"GoBlockChain/blockchain"
+		"GoBlockChain/peering"
 )
 
 
@@ -29,6 +30,11 @@ func Run() error {
 	}
 
 	return nil
+}
+
+
+func SetPeeringClient(){
+
 }
 
 
@@ -86,8 +92,10 @@ func handleWriteBlock(w http.ResponseWriter, r *http.Request) {
 		newBlockchain := append(blockchain.Blockchain, newBlock)
 		blockchain.ReplaceChain(newBlockchain)
 		spew.Dump(blockchain.Blockchain)
+		peering.Client.Send("Test")
 	}
 
+	
 	respondWithJSON(w, r, http.StatusCreated, newBlock)
 
 }
