@@ -2,11 +2,10 @@ package blockchain
 
 
 import (
-	
 	"crypto/sha256"
 	"encoding/hex"
 	"time"
-
+	"sync"
 )
 
 
@@ -21,6 +20,7 @@ type Block struct {
 
 var Blockchain []Block
 
+var mutex = &sync.Mutex{}
 
 
 func CalculateHash(block Block) string {
@@ -71,6 +71,11 @@ func ReplaceChain(newBlocks []Block) {
 		Blockchain = newBlocks
 	}
 }
+
+
+
+
+
 
 
 
