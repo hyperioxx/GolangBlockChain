@@ -9,8 +9,7 @@ import (
 		"encoding/json"
 		"github.com/davecgh/go-spew/spew"
 		"github.com/gorilla/mux"
-		"GoBlockChain/blockchain"
-		"GoBlockChain/peering"
+		"Rinku/blockchain"
 )
 
 
@@ -92,7 +91,6 @@ func handleWriteBlock(w http.ResponseWriter, r *http.Request) {
 		newBlockchain := append(blockchain.Blockchain, newBlock)
 		blockchain.ReplaceChain(newBlockchain)
 		spew.Dump(blockchain.Blockchain)
-		peering.Client.Send("Test")
 	}
 
 	

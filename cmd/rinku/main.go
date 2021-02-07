@@ -5,8 +5,8 @@ import (
 	"log"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/joho/godotenv"
-	"GoBlockChain/webserver"
-	"GoBlockChain/blockchain"
+	"Rinku/webserver"
+	"Rinku/blockchain"
 )
 
 
